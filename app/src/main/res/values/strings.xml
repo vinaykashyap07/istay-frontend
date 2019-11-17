@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">i Stay</string>
+    <string name="welcome_message">Welcome To Chandigarh</string>
+    <string name="noconnection">Kindly connect to a WIFI network or enable Mobile Data</string>
+
+</resources>
