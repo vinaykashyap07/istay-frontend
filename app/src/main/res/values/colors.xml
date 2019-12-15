@@ -8,6 +8,9 @@
     <color name="darkWhite">#cfd8dc</color>
     <color name="accent">#FF4081</color>
     <color name="md_red_500">#F44336</color>
+    <color name="gen_black">#000000</color>
+    <color name="grey_light">#E0E0E0</color>
+    <color name="grey_dark">#a9a9a9</color>
 
 
 </resources>

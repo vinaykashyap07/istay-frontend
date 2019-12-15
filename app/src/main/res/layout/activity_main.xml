@@ -8,43 +8,44 @@ android:background="@color/colorAccent"
 xmlns:card_view="http://schemas.android.com/apk/res-auto"
 tools:context=".MainActivity">
 
-<!--<android.support.design.widget.AppBarLayout-->
-<!--    android:id="@+id/toolbarwrap"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="wrap_content">-->
+<com.google.android.material.appbar.AppBarLayout
+    android:id="@+id/toolbarwrap"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-<!--    <android.support.v7.widget.Toolbar-->
-<!--        android:id="@+id/toolbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="?attr/actionBarSize"-->
-<!--        app:titleTextColor="@color/colorAccent"-->
-<!--        android:gravity="left"-->
-<!--        android:background="@color/colorAccent">-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:titleTextColor="@color/colorAccent"
+        android:gravity="left"
+        style="@style/CustomTheme"
+        android:background="@color/colorAccent">
 
-<!--        <TextView-->
-<!--            android:textColor="@color/colorPrimary"-->
-<!--            android:id="@+id/appname"-->
-<!--            android:textSize="28sp"-->
-<!--            android:gravity="start"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/app_name"-->
-<!--            android:padding="5dp"/>-->
+        <TextView
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/appname"
+            android:textSize="28sp"
+            android:gravity="start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:padding="5dp"/>
 
-<!--    </android.support.v7.widget.Toolbar>-->
+    </androidx.appcompat.widget.Toolbar>
 
-<!--</android.support.design.widget.AppBarLayout>-->
+</com.google.android.material.appbar.AppBarLayout>
 
 <ScrollView
     android:scrollbars="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_below="@id/toolbarwrap">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:layout_height="wrap_content">
 
 
 <!--        <com.daimajia.slider.library.SliderLayout-->
@@ -62,6 +63,7 @@ tools:context=".MainActivity">
                     card_view:cardCornerRadius="0dp">
 
                     <RelativeLayout
+                        android:id="@+id/card_list_element"
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -74,10 +76,161 @@ tools:context=".MainActivity">
                             app:pager_animation="Accordion"
                             app:pager_animation_span="1100" />
 
-                        <TextView
+                        <LinearLayout
                             android:layout_below="@id/room_photos"
-                            android:text="Address"
-                            style="@style/homegridtext"/>
+                            android:id="@+id/room_detail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/house_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:text="ISTAY REST CDG1073 Rail Vihar"
+                                android:textSize="16dp"
+                                android:textColor="@color/gen_black"/>
+                            <TextView
+                                android:id="@+id/house_address"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Block A, Rail Vihar"
+                                android:textSize="12dp"
+                                android:textColor="@color/gen_black" />
+
+                            <LinearLayout
+                                android:layout_below="@id/house_address"
+                                android:id="@+id/ll_action"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="8dp"
+                                android:weightSum="3">
+
+                                <LinearLayout android:id="@+id/layout_action1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="vertical"
+                                    android:weightSum="2">
+                                    <TextView android:id="@+id/text_action1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Boys Only"
+                                        android:textSize="12dp"
+                                        android:textColor="@color/grey_dark"/>
+                                    <ImageView
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:adjustViewBounds="true"
+                                        android:src="@drawable/for_whom"/>
+
+                                </LinearLayout>
+
+                                <View android:layout_width="@dimen/view_width_small"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/grey_light"/>
+
+                                <LinearLayout android:id="@+id/layout_action2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:weightSum="2">
+                                    <TextView android:id="@+id/text1_action2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="OCCUPANCY"
+                                        android:textSize="12dp"
+                                        android:textColor="@color/grey_dark" />
+                                    <TextView android:id="@+id/text2_action2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_weight="1"
+                                        android:text="Shared / Private"
+                                        android:textSize="12dp"
+                                        android:textColor="@color/gen_black"/>
+                                </LinearLayout>
+
+                                <View android:layout_width="@dimen/view_width_small"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/grey_light"/>
+
+                                <LinearLayout
+                                    android:id="@+id/layout_action3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:weightSum="2">
+                                    <TextView android:id="@+id/text_action3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:layout_marginLeft="8dp"
+                                        android:text="AMENITIES"
+                                        android:textSize="12dp"
+                                        android:textColor="@color/grey_dark"/>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:layout_weight="1"
+                                        android:layout_marginTop="5dp"
+                                        android:weightSum="3">
+                                        <ImageView
+                                            android:layout_marginTop="5dp"
+                                            android:layout_width="0dp"
+                                            android:layout_weight="1"
+                                            android:layout_height="25dp"
+                                            android:adjustViewBounds="true"
+                                            android:src="@drawable/similar"/>
+                                        <ImageView
+                                            android:layout_marginTop="5dp"
+                                            android:layout_width="0dp"
+                                            android:layout_weight="1"
+                                            android:layout_height="25dp"
+                                            android:adjustViewBounds="true"
+                                            android:src="@drawable/share"/>
+                                        <ImageView
+                                            android:layout_marginTop="5dp"
+                                            android:layout_width="0dp"
+                                            android:layout_weight="1"
+                                            android:layout_height="25dp"
+                                            android:adjustViewBounds="true"
+                                            android:src="@drawable/for_whom"/>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                                    <TextView android:id="@+id/starting_price"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="STARTING AT"
+                                        android:textSize="12dp"
+                                        android:textColor="@color/grey_dark"/>
+                                    <TextView android:id="@+id/price"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="₹ 8999"
+                                        android:textSize="12dp"
+                                        android:textColor="@color/gen_black"/>
+
+                        </LinearLayout>
 
                     </RelativeLayout>
 
