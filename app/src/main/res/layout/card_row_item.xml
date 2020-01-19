@@ -67,7 +67,7 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical"
                                 android:weightSum="2">
-                                <TextView android:id="@+id/text_action1"
+                                <TextView android:id="@+id/text_for_whom"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -95,7 +95,7 @@
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:weightSum="2">
-                                <TextView android:id="@+id/text1_action2"
+                                <TextView android:id="@+id/occupancy"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="top|center_horizontal"
@@ -103,7 +103,7 @@
                                     android:text="OCCUPANCY"
                                     android:textSize="12dp"
                                     android:textColor="@color/grey_dark" />
-                                <TextView android:id="@+id/text2_action2"
+                                <TextView android:id="@+id/occupancy_detail"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical|center_horizontal"
@@ -125,7 +125,7 @@
                                 android:gravity="center"
                                 android:orientation="vertical"
                                 android:weightSum="2">
-                                <TextView android:id="@+id/text_action3"
+                                <TextView android:id="@+id/amenities"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"

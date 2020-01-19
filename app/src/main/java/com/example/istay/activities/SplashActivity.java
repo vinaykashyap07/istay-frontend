@@ -1,21 +1,18 @@
-package com.example.istay;
+package com.example.istay.activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.example.istay.R;
 import com.example.istay.usersession.UserSession;
-
-import static com.example.istay.usersession.UserSession.IS_FIRST_TIME_LAUNCH;
 
 public class SplashActivity extends Activity {
 
@@ -66,7 +63,7 @@ public class SplashActivity extends Activity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 finish();
             }
         }, SPLASH_TIME_OUT);
