@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 10; i++) {
             SingleHouseModel model = new SingleHouseModel();
             model.setHouseName("house name hn:"+i);
-            model.setHouseAddress("house address haddress:"+i);
+            model.setHouseAddress("house address address:"+i);
             model.setOccupancy("house name hn:"+i);
             model.setTripleSharingPrice("triple + 100"+i);
             model.setOccupancy("private"+i);
