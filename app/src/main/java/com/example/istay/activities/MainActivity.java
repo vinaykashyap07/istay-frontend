@@ -1,8 +1,12 @@
 package com.example.istay.activities;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,12 +14,11 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 import com.example.istay.Adapter.HouseCardAdapter;
 import com.example.istay.R;
+import com.example.istay.interfaces.OnItemClickListener;
 import com.example.istay.models.SingleHouseModel;
 import com.example.istay.networksync.CheckInternetConnection;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,15 +31,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        houseCardAdapter = new HouseCardAdapter(generateHouseList());
+
+        Typeface typeface = ResourcesCompat.getFont(this, R.font.blacklist);
+        TextView appname = findViewById(R.id.appname);
+        appname.setTypeface(typeface);
+
+        houseCardAdapter = new HouseCardAdapter(generateHouseList(), new OnItemClickListener() {
+            @Override
+            public void onItemClick(SingleHouseModel item) {
+                Toast.makeText(getApplicationContext(),"Item Clicked",Toast.LENGTH_SHORT).show();
+            }
+        });
         RecyclerView recyclerView =
                 (RecyclerView)findViewById(R.id.my_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(houseCardAdapter);
-
-//        Typeface typeface = ResourcesCompat.getFont(this, R.font.blacklist);
-//        TextView appname = findViewById(R.id.appname);
-//        appname.setTypeface(typeface);
 
         new CheckInternetConnection(this).checkConnection();
 
@@ -49,13 +58,21 @@ public class MainActivity extends AppCompatActivity {
         List<SingleHouseModel> simpleViewModelList = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
+
+            ArrayList<String> sliderImages = new ArrayList<>();
+            sliderImages.add("https://www.printstop.co.in/images/flashgallary/large/Business_stationery_home_banner.jpg");
+            sliderImages.add("https://www.printstop.co.in/images/flashgallary/large/calendar-diaries-home-banner.jpg");
+            sliderImages.add("https://www.printstop.co.in/images/flashgallary/large/calendar-diaries-banner.jpg");
+            sliderImages.add("https://www.printstop.co.in/images/flashgallary/large/free-visiting-cards-home-banner.jpg");
+
             SingleHouseModel model = new SingleHouseModel();
+
             model.setHouseName("house name hn:"+i);
             model.setHouseAddress("house address address:"+i);
-            model.setOccupancy("house name hn:"+i);
             model.setTripleSharingPrice("triple + 100"+i);
             model.setOccupancy("private"+i);
             model.setForWhom("Boys"+i);
+            model.setImages(sliderImages);
 
             simpleViewModelList.add(model);
         }

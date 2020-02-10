@@ -1,5 +1,7 @@
 package com.example.istay.models;
 
+import java.util.ArrayList;
+
 public class SingleHouseModel {
 
     private String houseId;
@@ -14,6 +16,8 @@ public class SingleHouseModel {
     private String distFromInfyInMin;
     private String AboutProperty;
     private String rating;
+    private ArrayList<String> images;
+
 
     public String getHouseId() {
         return houseId;
@@ -109,5 +113,13 @@ public class SingleHouseModel {
 
     public void setOccupancy(String occupancy) {
         this.occupancy = occupancy;
+    }
+
+    public ArrayList<String> getImages() {
+        return images;
+    }
+
+    public void setImages(ArrayList<String> images) {
+        this.images = images;
     }
 }

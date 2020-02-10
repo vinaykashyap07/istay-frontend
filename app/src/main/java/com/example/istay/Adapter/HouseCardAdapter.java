@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.istay.R;
+import com.example.istay.interfaces.OnItemClickListener;
 import com.example.istay.models.SingleHouseModel;
 import com.example.istay.viewholder.HouseViewHolder;
 
@@ -17,8 +18,10 @@ import java.util.List;
 public class HouseCardAdapter extends RecyclerView.Adapter {
 
     private List<SingleHouseModel> models = new ArrayList<>();
+    private final OnItemClickListener listener;
 
-    public HouseCardAdapter(List<SingleHouseModel> viewModels){
+    public HouseCardAdapter(List<SingleHouseModel> viewModels, OnItemClickListener listener){
+        this.listener = listener;
         if(viewModels != null){
             this.models.addAll(viewModels);
         }
@@ -33,7 +36,7 @@ public class HouseCardAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ((HouseViewHolder) holder).bindData(models.get(position));
+        ((HouseViewHolder) holder).bindData(models.get(position),listener);
     }
 
     @Override

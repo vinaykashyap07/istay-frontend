@@ -1,6 +1,7 @@
 package com.example.istay.viewholder;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -8,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
+import com.example.istay.HomeCategory.IndividualHouse;
 import com.example.istay.R;
+import com.example.istay.interfaces.OnItemClickListener;
 import com.example.istay.models.SingleHouseModel;
 
 import java.util.ArrayList;
@@ -34,32 +37,58 @@ public class HouseViewHolder extends RecyclerView.ViewHolder{
         sliderShow = (SliderLayout)view.findViewById(R.id.room_photos);
     }
 
-    public void bindData(final SingleHouseModel viewModel) {
+    public void bindData(final SingleHouseModel viewModel, final OnItemClickListener listener) {
         houseName.setText(viewModel.getHouseName());
         houseAddress.setText(viewModel.getHouseAddress());
         occupancyDetail.setText(viewModel.getOccupancy());
         textForWhom.setText(viewModel.getForWhom());
         price.setText(viewModel.getTripleSharingPrice());
-        inflateImageSlider(sliderShow.getContext());
+
+        ArrayList<String> sliderImages = viewModel.getImages();
+        inflateImageSlider(sliderShow.getContext(),sliderImages);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(itemView.getContext(), IndividualHouse.class);
+                intent.putExtra("HouseName",houseName.getText());
+
+                itemView.getContext().startActivity(intent);
+            }
+        });
+
+//        itemView.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(HouseViewHolder.this);
+//                intent.putExtra("product",getItem(position));
+//                startActivity(intent);
+//            }
+//        });
+
+//        viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Tshirts.this,IndividualProduct.class);
+//                intent.putExtra("product",getItem(position));
+//                startActivity(intent);
+//            }
+//        });
+
     }
 
-    private void inflateImageSlider(Context context) {
+    private void inflateImageSlider(Context context, ArrayList<String> sliderImages) {
 
         //populating Image slider
-        ArrayList<String> sliderImages = new ArrayList<>();
-        sliderImages.add("https://www.printstop.co.in/images/flashgallary/large/Business_stationery_home_banner.jpg");
-        sliderImages.add("https://www.printstop.co.in/images/flashgallary/large/calendar-diaries-home-banner.jpg");
-        sliderImages.add("https://www.printstop.co.in/images/flashgallary/large/calendar-diaries-banner.jpg");
-        sliderImages.add("https://www.printstop.co.in/images/flashgallary/large/free-visiting-cards-home-banner.jpg");
+        ArrayList<String> sliderImage = sliderImages;
 
-        for (String s : sliderImages) {
+        for (String s : sliderImage) {
             DefaultSliderView sliderView = new DefaultSliderView(context);
             sliderView.image(s);
             sliderShow.addSlider(sliderView);
         }
-
+        sliderShow.stopAutoCycle();
         sliderShow.setPresetIndicator(SliderLayout.PresetIndicators.Right_Bottom);
 
     }
-
 }

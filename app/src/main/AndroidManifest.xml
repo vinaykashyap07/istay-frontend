@@ -17,6 +17,9 @@
             android:theme="@style/WhiteTheme" />
 
         <activity
+            android:name=".HomeCategory.IndividualHouse"
+            android:theme="@style/WhiteTheme" />
+        <activity
             android:name=".activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
