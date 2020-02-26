@@ -16,7 +16,7 @@ import com.example.istay.usersession.UserSession;
 
 public class SplashActivity extends Activity {
 
-    private static int SPLASH_TIME_OUT = 4000;
+    private static int SPLASH_TIME_OUT = 1000;
     String textToShow;
     //to get user session data
     private UserSession prefManager;
@@ -45,11 +45,11 @@ public class SplashActivity extends Activity {
         appname.setTypeface(typeface);
 
         YoYo.with(Techniques.Bounce)
-                .duration(7000)
+                .duration(1000)
                 .playOn(findViewById(R.id.logo));
 
         YoYo.with(Techniques.FadeInUp)
-                .duration(5000)
+                .duration(1000)
                 .playOn(findViewById(R.id.appname));
 
         new Handler().postDelayed(new Runnable() {

@@ -60,10 +60,10 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 10; i++) {
 
             ArrayList<String> sliderImages = new ArrayList<>();
-            sliderImages.add("https://www.printstop.co.in/images/flashgallary/large/Business_stationery_home_banner.jpg");
-            sliderImages.add("https://www.printstop.co.in/images/flashgallary/large/calendar-diaries-home-banner.jpg");
-            sliderImages.add("https://www.printstop.co.in/images/flashgallary/large/calendar-diaries-banner.jpg");
-            sliderImages.add("https://www.printstop.co.in/images/flashgallary/large/free-visiting-cards-home-banner.jpg");
+            sliderImages.add("https://images.oyoroomscdn.com/uploads/hotel_image/39367/large/fa8d08b677218d93.jpg");
+            sliderImages.add("https://images.oyoroomscdn.com/uploads/hotel_image/39367/large/e31ebb15e5667a57.jpg");
+            sliderImages.add("https://images.oyoroomscdn.com/uploads/hotel_image/39367/large/b8e8024d5b6b8c49.jpg");
+            sliderImages.add("https://images.oyoroomscdn.com/uploads/hotel_image/39367/large/f1ad68aa16ccfbf3.jpg");
 
             SingleHouseModel model = new SingleHouseModel();
 
@@ -76,9 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
             simpleViewModelList.add(model);
         }
-
         return simpleViewModelList;
-
     }
 
 
